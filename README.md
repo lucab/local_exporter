@@ -1,4 +1,4 @@
-# Local\_exporter
+# local\_exporter
 
 [![Build status](https://travis-ci.com/lucab/local_exporter.svg?branch=master)](https://travis-ci.com/lucab/local_exporter)
 [![Container image](https://quay.io/repository/lucab/local_exporter/status)](https://quay.io/repository/lucab/local_exporter)
