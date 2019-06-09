@@ -1,6 +1,8 @@
 package config
 
 import (
+	"errors"
+
 	"github.com/BurntSushi/toml"
 )
 
@@ -33,29 +35,39 @@ func parseConfig(fpath string, defaults Settings) (Settings, error) {
 	if _, err := toml.DecodeFile(fpath, &cfg); err != nil {
 		return Settings{}, err
 	}
+
 	runSettings := defaults
-	mergeToml(&runSettings, cfg)
+
+	if err := mergeToml(&runSettings, cfg); err != nil {
+		return Settings{}, err
+	}
 
 	return runSettings, nil
 }
 
 // mergeToml applies a TOML configuration fragment on top of existing settings
-func mergeToml(settings *Settings, cfg tomlConfig) {
+func mergeToml(settings *Settings, cfg tomlConfig) error {
 	if settings == nil {
-		return
+		return errors.New("nil settings")
 	}
 
 	if cfg.Service != nil {
-		mergeService(settings, *cfg.Service)
+		if err := mergeService(settings, *cfg.Service); err != nil {
+			return err
+		}
 	}
 	if cfg.Metrics != nil {
-		mergeMetrics(settings, *cfg.Metrics)
+		if err := mergeMetrics(settings, *cfg.Metrics); err != nil {
+			return err
+		}
 	}
+
+	return nil
 }
 
-func mergeService(settings *Settings, cfg serviceSection) {
+func mergeService(settings *Settings, cfg serviceSection) error {
 	if settings == nil {
-		return
+		return errors.New("nil settings")
 	}
 
 	if cfg.Address != nil {
@@ -64,13 +76,23 @@ func mergeService(settings *Settings, cfg serviceSection) {
 	if cfg.Port != nil {
 		settings.ServicePort = *cfg.Port
 	}
+
+	return nil
 }
 
-func mergeMetrics(settings *Settings, cfg metricsSection) {
+func mergeMetrics(settings *Settings, cfg metricsSection) error {
 	if settings == nil {
-		return
+		return errors.New("nil settings")
 	}
+
 	for selector, entry := range cfg.Selectors {
-		settings.Selectors[selector] = entry
+		backend, err := ParseBackend(entry)
+		if err != nil {
+			return err
+		}
+
+		settings.Selectors[selector] = backend
 	}
+
+	return nil
 }
