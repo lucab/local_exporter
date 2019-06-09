@@ -2,6 +2,8 @@ package config
 
 import (
 	"errors"
+
+	"github.com/lucab/local_exporter/internal/backend"
 )
 
 // Settings stores runtime application configuration
@@ -9,7 +11,7 @@ type Settings struct {
 	ServiceAddress string
 	ServicePort    uint64
 
-	Selectors map[string]selectorSection
+	Selectors map[string]backend.MetricsSource
 }
 
 // SelectorsNames returns the set of all configured selectors names.
@@ -44,7 +46,7 @@ func defaultSettings() Settings {
 		ServiceAddress: "0.0.0.0",
 		ServicePort:    9598,
 
-		Selectors: make(map[string]selectorSection),
+		Selectors: make(map[string]backend.MetricsSource),
 	}
 }
 

@@ -3,6 +3,6 @@ address = "127.0.0.1"
 port = 9598
 
 [metrics.selectors]
-"daemon1" = { kind = "text_file", path = "/run/daemon1/public/metrics.promfile" }
-"daemon2" = { kind = "unix_socket", path = "/run/daemon2/public/metrics.promsock" }
-"daemon3" = { kind = "dbus_call", path = "TODO" }
+"daemon1" = { kind = "file", path = "/run/daemon1/public/metrics.promfile" }
+"daemon2" = { kind = "uds", path = "/run/daemon2/public/metrics.promsock" }
+"daemon3" = { kind = "dbus", path = "TODO" }
