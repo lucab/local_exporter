@@ -36,6 +36,7 @@ func runServe(cmd *cobra.Command, cmdArgs []string) error {
 	exporter := server.LocalExporter{*runSettings}
 
 	http.Handle(server.BridgeEndpoint, exporter.BridgeHandler())
+	http.Handle(server.MetricsEndpoint, exporter.MetricsHandler())
 
 	listenAddr := fmt.Sprintf("%s:%d", runSettings.ServiceAddress, runSettings.ServicePort)
 	if err := http.ListenAndServe(listenAddr, nil); err != nil {
