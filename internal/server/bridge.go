@@ -9,12 +9,12 @@ import (
 )
 
 const (
-	// MetricsEndpoint is the endpoint for exposing metrics.
-	MetricsEndpoint = "/metrics"
+	// BridgeEndpoint is the endpoint for exposing bridged metrics.
+	BridgeEndpoint = "/bridge"
 )
 
-// MetricsHandler is the handler for the `/metrics` endpoint.
-func (le *LocalExporter) MetricsHandler() http.Handler {
+// BridgeHandler is the handler for the `/bridge` endpoint.
+func (le *LocalExporter) BridgeHandler() http.Handler {
 	handler := func(w http.ResponseWriter, req *http.Request) {
 		if le == nil {
 			ErrorResponse(w, errNilServer, "", 500)
@@ -40,14 +40,14 @@ func (le *LocalExporter) MetricsHandler() http.Handler {
 		ctx, cancel := context.WithTimeout(context.Background(), timeout)
 		defer cancel()
 
-		metricsSource, err := backend.OpenMetrics(ctx)
+		source, err := backend.OpenMetrics(ctx)
 		if err != nil {
 			ErrorResponse(w, err, selector, 500)
 			return
 		}
-		defer metricsSource.Close()
+		defer source.Close()
 
-		io.Copy(w, metricsSource)
+		io.Copy(w, source)
 
 	}
 
