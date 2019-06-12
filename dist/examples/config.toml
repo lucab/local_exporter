@@ -1,8 +1,17 @@
+# Main service
 [service]
+# Listening address
 address = "127.0.0.1"
+# Listening port
 port = 9598
+# Whether to serve HTTP endpoints over TLS
+tls = false
 
+# Backends multiplexing
 [metrics.selectors]
+# Metrics source over normal file (by path)
 "daemon1" = { kind = "file", path = "/run/daemon1/public/metrics.promfile" }
+# Metrics source over unix-domain socket (streaming socket, by path)
 "daemon2" = { kind = "uds", path = "/run/daemon2/public/metrics.promsock" }
+# Metrics source over DBus protocol (by remote-call endpoint)
 "daemon3" = { kind = "dbus", path = "TODO" }
