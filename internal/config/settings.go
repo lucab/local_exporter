@@ -10,6 +10,7 @@ import (
 type Settings struct {
 	ServiceAddress string
 	ServicePort    uint64
+	ServiceTLS     bool
 
 	Selectors map[string]backend.MetricsSource
 }
@@ -45,6 +46,7 @@ func defaultSettings() Settings {
 	return Settings{
 		ServiceAddress: "0.0.0.0",
 		ServicePort:    9598,
+		ServiceTLS:     true,
 
 		Selectors: make(map[string]backend.MetricsSource),
 	}
@@ -54,6 +56,9 @@ func defaultSettings() Settings {
 func validate(cfg Settings) error {
 	if len(cfg.Selectors) == 0 {
 		return errors.New("no selectors configured")
+	}
+	if cfg.ServiceTLS {
+		return errors.New("TLS mode not yet implemented")
 	}
 
 	return nil

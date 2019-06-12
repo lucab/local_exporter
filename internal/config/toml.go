@@ -16,6 +16,7 @@ type tomlConfig struct {
 type serviceSection struct {
 	Address *string `toml:"address"`
 	Port    *uint64 `toml:"port"`
+	TLS     *bool   `toml:"tls"`
 }
 
 // metricsSection holds the optional `metrics` fragment
@@ -75,6 +76,9 @@ func mergeService(settings *Settings, cfg serviceSection) error {
 	}
 	if cfg.Port != nil {
 		settings.ServicePort = *cfg.Port
+	}
+	if cfg.TLS != nil {
+		settings.ServiceTLS = *cfg.TLS
 	}
 
 	return nil
