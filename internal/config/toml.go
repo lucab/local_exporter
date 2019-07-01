@@ -9,7 +9,7 @@ import (
 // tomlConfig is the top-level TOML configuration fragment
 type tomlConfig struct {
 	Service *serviceSection `toml:"service"`
-	Metrics *metricsSection `toml:"metrics"`
+	Bridge  *bridgeSection  `toml:"bridge"`
 }
 
 // serviceSection holds the optional `service` fragment
@@ -19,8 +19,8 @@ type serviceSection struct {
 	TLS     *bool   `toml:"tls"`
 }
 
-// metricsSection holds the optional `metrics` fragment
-type metricsSection struct {
+// bridgeSection holds the optional `bridge` fragment
+type bridgeSection struct {
 	Selectors map[string]selectorSection `toml:"selectors"`
 }
 
@@ -62,8 +62,8 @@ func mergeToml(settings *Settings, cfg tomlConfig) error {
 			return err
 		}
 	}
-	if cfg.Metrics != nil {
-		if err := mergeMetrics(settings, *cfg.Metrics); err != nil {
+	if cfg.Bridge != nil {
+		if err := mergeBridge(settings, *cfg.Bridge); err != nil {
 			return err
 		}
 	}
@@ -89,7 +89,7 @@ func mergeService(settings *Settings, cfg serviceSection) error {
 	return nil
 }
 
-func mergeMetrics(settings *Settings, cfg metricsSection) error {
+func mergeBridge(settings *Settings, cfg bridgeSection) error {
 	if settings == nil {
 		return errors.New("nil settings")
 	}
