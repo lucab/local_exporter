@@ -13,5 +13,11 @@ tls = false
 "daemon1" = { kind = "file", path = "/run/daemon1/public/metrics.promfile" }
 # Metrics source over unix-domain socket (streaming socket, by path)
 "daemon2" = { kind = "uds", path = "/run/daemon2/public/metrics.promsock" }
+
 # Metrics source over DBus protocol (by remote-call endpoint)
-"daemon3" = { kind = "dbus", path = "TODO" }
+[metrics.selectors.daemon3]
+kind = "dbus"
+bus = "system"
+destination = "com.github.lucab.Prombus"
+method = "com.github.lucab.Prombus.Observable.PromMetrics"
+path = "/com/github/lucab/Prombus"

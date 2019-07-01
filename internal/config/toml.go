@@ -28,6 +28,11 @@ type metricsSection struct {
 type selectorSection struct {
 	Kind string `toml:"kind"`
 	Path string `toml:"path"`
+
+	// DBus specific
+	Bus         string `toml:"bus"`
+	Destination string `toml:"destination"`
+	Method      string `toml:"method"`
 }
 
 // parseConfig tries to parse and merge TOML config and default settings
