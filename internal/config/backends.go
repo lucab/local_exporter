@@ -36,7 +36,10 @@ func parseUnixBackend(cfg selectorSection) (*backend.UnixBackend, error) {
 
 func parseDbusBackend(cfg selectorSection) (*backend.DbusBackend, error) {
 	db := backend.DbusBackend{
-		Path: cfg.Path,
+		Bus:         cfg.Bus,
+		Destination: cfg.Destination,
+		Method:      cfg.Method,
+		Path:        cfg.Path,
 	}
 	return &db, nil
 }
