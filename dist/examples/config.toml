@@ -8,14 +8,14 @@ port = 9598
 tls = false
 
 # Backends multiplexing
-[metrics.selectors]
+[bridge.selectors]
 # Metrics source over normal file (by path)
 "daemon1" = { kind = "file", path = "/run/daemon1/public/metrics.promfile" }
 # Metrics source over unix-domain socket (streaming socket, by path)
 "daemon2" = { kind = "uds", path = "/run/daemon2/public/metrics.promsock" }
 
 # Metrics source over DBus protocol (by remote-call endpoint)
-[metrics.selectors.daemon3]
+[bridge.selectors.daemon3]
 kind = "dbus"
 bus = "system"
 destination = "com.github.lucab.Prombus"
