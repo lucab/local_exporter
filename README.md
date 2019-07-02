@@ -16,5 +16,5 @@ A TOML configuration sample (with comments) is available under [examples](dist/e
 An automatically built `x86_64` container image is available on [quay.io](https://quay.io/repository/lucab/local_exporter) and can be run as:
 
 ```
-docker run -p 9598:9598/tcp -v "$PWD/dist/examples/config.toml:/etc/local_exporter/config.toml" quay.io/lucab/local_exporter:master local_exporter serve -vv
+docker run -p 9598:9598/tcp -v "$PWD/dist/examples/config.toml:/etc/local_exporter/config.toml" -v /run:/host/run quay.io/lucab/local_exporter:master local_exporter serve -vv
 ```
