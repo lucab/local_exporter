@@ -12,6 +12,9 @@ type Settings struct {
 	ServicePort    uint64
 	ServiceTLS     bool
 
+	DbusSessionBusAddress string
+	DbusSystemBusAddress  string
+
 	Selectors map[string]backend.MetricsSource
 }
 
@@ -47,6 +50,9 @@ func defaultSettings() Settings {
 		ServiceAddress: "0.0.0.0",
 		ServicePort:    9598,
 		ServiceTLS:     true,
+
+		DbusSessionBusAddress: "",
+		DbusSystemBusAddress:  "",
 
 		Selectors: make(map[string]backend.MetricsSource),
 	}

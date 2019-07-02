@@ -7,6 +7,10 @@ port = 9598
 # Whether to serve HTTP endpoints over TLS
 tls = false
 
+# Bridge configuration
+[bridge]
+dbus_system_bus_address = "unix:path=/host/run/dbus/system_bus_socket"
+
 # Backends multiplexing
 [bridge.selectors]
 # Metrics source over normal file (by path)

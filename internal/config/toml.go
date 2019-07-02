@@ -21,7 +21,9 @@ type serviceSection struct {
 
 // bridgeSection holds the optional `bridge` fragment
 type bridgeSection struct {
-	Selectors map[string]selectorSection `toml:"selectors"`
+	Selectors             map[string]selectorSection `toml:"selectors"`
+	DbusSessionBusAddress *string                    `toml:"dbus_session_bus_address"`
+	DbusSystemBusAddress  *string                    `toml:"dbus_system_bus_address"`
 }
 
 // selectorSection holds the optional `selector` fragment
@@ -92,6 +94,13 @@ func mergeService(settings *Settings, cfg serviceSection) error {
 func mergeBridge(settings *Settings, cfg bridgeSection) error {
 	if settings == nil {
 		return errors.New("nil settings")
+	}
+
+	if cfg.DbusSessionBusAddress != nil {
+		settings.DbusSessionBusAddress = *cfg.DbusSessionBusAddress
+	}
+	if cfg.DbusSystemBusAddress != nil {
+		settings.DbusSystemBusAddress = *cfg.DbusSystemBusAddress
 	}
 
 	for selector, entry := range cfg.Selectors {

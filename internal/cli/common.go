@@ -2,6 +2,7 @@ package cli
 
 import (
 	"errors"
+	"os"
 
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -43,6 +44,13 @@ func commonSetup(cmd *cobra.Command, cmdArgs []string) error {
 		return err
 	}
 	runSettings = &cfg
+
+	if runSettings.DbusSessionBusAddress != "" {
+		os.Setenv("DBUS_SESSION_BUS_ADDRESS", runSettings.DbusSessionBusAddress)
+	}
+	if runSettings.DbusSystemBusAddress != "" {
+		os.Setenv("DBUS_SYSTEM_BUS_ADDRESS", runSettings.DbusSystemBusAddress)
+	}
 
 	return nil
 }
