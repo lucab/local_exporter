@@ -4,6 +4,12 @@ go_import_path: github.com/lucab/local_exporter
 go:
   - "1.12"
 
+branches:
+  only:
+    - staging
+    - trying
+    - master
+
 env:
   global:
     - GO111MODULE="on"
