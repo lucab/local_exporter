@@ -3,6 +3,9 @@
 [![Build status](https://travis-ci.com/lucab/local_exporter.svg?branch=master)](https://travis-ci.com/lucab/local_exporter)
 [![Container image](https://quay.io/repository/lucab/local_exporter/status)](https://quay.io/repository/lucab/local_exporter)
 
+
+`local-exporter` bridges between Prometheus and instrumented on-host daemons that do not expose a web-server on their own.
+
 Configuration is done through a single TOML file.
 
 ## Quickstart
