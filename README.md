@@ -6,6 +6,11 @@
 
 `local-exporter` bridges between Prometheus and instrumented on-host daemons that do not expose a web-server on their own.
 
+It is meant to run as an unpriviliged container with few bind-mounts, and can bridge to multiple local endpoints:
+ * plain metrics textfile
+ * Unix-domain socket
+ * DBus method
+
 Configuration is done through a single TOML file.
 
 ## Quickstart
@@ -21,3 +26,7 @@ An automatically built `x86_64` container image is available on [quay.io](https:
 ```
 docker run -p 9598:9598/tcp -v "$PWD/dist/examples/config.toml:/etc/local_exporter/config.toml" -v /run:/host/run quay.io/lucab/local_exporter:master local_exporter serve -vv
 ```
+
+## Demo
+
+[![asciicast](https://asciinema.org/a/256453.svg)](https://asciinema.org/a/256453)
