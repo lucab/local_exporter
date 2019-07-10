@@ -11,7 +11,7 @@ It is meant to run as an unpriviliged container with few bind-mounts, and can br
  * Unix-domain socket
  * DBus method
 
-Configuration is done through a single TOML file.
+For more information and background details, see the [design doc](docs/design.md).
 
 ## Quickstart
 
