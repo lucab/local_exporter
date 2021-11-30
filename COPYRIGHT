@@ -1,0 +1,7 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: local_exporter
+Source: https://www.github.com/lucab/local_exporter
+
+Files: *
+Copyright: 2019, Luca BRUNO <lucab@lucabruno.net>
+License: Apache-2.0
