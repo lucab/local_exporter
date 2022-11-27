@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.10](https://github.com/shift/local_exporter/compare/v0.0.9...v0.0.10) (2022-11-27)
+
+
+### Bug Fixes
+
+* **cri:** Correct paths. ([599f29e](https://github.com/shift/local_exporter/commit/599f29e3ca0e8730a3c97b84d2d6019253f7e77f))
+
 ## [0.0.9](https://github.com/shift/local_exporter/compare/v0.0.8...v0.0.9) (2022-11-27)
 
 
