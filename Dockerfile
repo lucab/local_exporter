@@ -1,7 +1,6 @@
 # build environment
 FROM docker.io/golang:1.19-alpine3.16 AS build-env
-ADD . /src
-RUN cd /src && go get && go build
+RUN go install github.com/shift/local_exporter@latest
 
 # run environment
 FROM docker.io/alpine:3.16
