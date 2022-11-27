@@ -44,7 +44,7 @@ dockers:
   - use: buildx
     goos: linux
     goarch: amd64
-    dockerfile: ./dist/Dockerfile
+    dockerfile: Dockerfile
     image_templates:
       - ghcr.io/shift/local_exporter:v{{ .Version }}-amd64
     build_flag_templates:
@@ -62,7 +62,7 @@ dockers:
   - use: buildx
     goos: linux
     goarch: arm64
-    dockerfile: ./dist/Dockerfile
+    dockerfile: Dockerfile
     image_templates:
       - ghcr.io/shift/local_exporter:v{{ .Version }}-arm64
     build_flag_templates:
@@ -81,7 +81,7 @@ dockers:
     goos: linux
     goarch: arm
     goarm: "7"
-    dockerfile: ./dist/Dockerfile
+    dockerfile: Dockerfile
     image_templates:
       - ghcr.io/shift/local_exporter:v{{ .Version }}-arm32v7
     build_flag_templates:
