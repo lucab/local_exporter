@@ -1,4 +1,4 @@
-module github.com/lucab/local_exporter
+module github.com/shift/local_exporter
 
 go 1.19
 
