@@ -3,7 +3,7 @@ package config
 import (
 	"errors"
 
-	"github.com/lucab/local_exporter/internal/backend"
+	"github.com/shift/local_exporter/internal/backend"
 )
 
 // Settings stores runtime application configuration

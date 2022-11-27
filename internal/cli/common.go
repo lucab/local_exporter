@@ -7,7 +7,7 @@ import (
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 
-	"github.com/lucab/local_exporter/internal/config"
+	"github.com/shift/local_exporter/internal/config"
 )
 
 var (

@@ -3,7 +3,7 @@ package config
 import (
 	"fmt"
 
-	"github.com/lucab/local_exporter/internal/backend"
+	"github.com/shift/local_exporter/internal/backend"
 )
 
 // ParseBackend parses a backend configuration
