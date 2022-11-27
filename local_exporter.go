@@ -5,7 +5,7 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	"github.com/lucab/local_exporter/internal/cli"
+	"github.com/shift/local_exporter/internal/cli"
 )
 
 func main() {
