@@ -10,9 +10,7 @@ builds:
     env:
       - CGO_ENABLED=0
     goos:
-      - darwin
       - linux
-      - windows
     goarch:
       - amd64
       - arm64
@@ -21,11 +19,7 @@ builds:
       - "7"
     ignore:
       - goos: windows
-        goarch: arm64
-      - goos: windows
-        goarch: arm
       - goos: darwin
-        goarch: arm
     ldflags:
       - -s
       - -w
