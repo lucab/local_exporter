@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.6](https://github.com/shift/local_exporter/compare/v0.0.5...v0.0.6) (2022-11-27)
+
+
+### Bug Fixes
+
+* **release:** Path context issue should be resolved. ([9c09929](https://github.com/shift/local_exporter/commit/9c09929ab0e234d1c31392f1ffab5770d283db27))
+
 ## [0.0.5](https://github.com/shift/local_exporter/compare/v0.0.4...v0.0.5) (2022-11-27)
 
 
