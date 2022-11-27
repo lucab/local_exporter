@@ -4,7 +4,7 @@ ADD . /src
 RUN cd /src && go build -mod=vendor
 
 # run environment
-FROM alpine:3.9
+FROM alpine:3.17
 WORKDIR /
 COPY --from=build-env /src/local_exporter /usr/local/bin/local_exporter
 CMD [ "/usr/local/bin/local_exporter", "serve" ]
