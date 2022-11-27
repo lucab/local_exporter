@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.0.9](https://github.com/shift/local_exporter/compare/v0.0.8...v0.0.9) (2022-11-27)
+
+
+### Bug Fixes
+
+* **ci:** Used to be a cool band ;P ([a9d223a](https://github.com/shift/local_exporter/commit/a9d223ae272409db6a4a29497f0ac71c1d3fd7b4))
+* **dockerfile:** Lets see if it works now :/ ([ba1081a](https://github.com/shift/local_exporter/commit/ba1081a2caf525e36c04d8ddb1a8bd8c89f3e47a))
+* **fork:** More referances. ([a3c5494](https://github.com/shift/local_exporter/commit/a3c549400a4749463fafaf2a1e21c15f5e73864e))
+* namespaces for internal modules due to forking. ([5ee9801](https://github.com/shift/local_exporter/commit/5ee9801927cb91ad38f94249a9b3f2810cea7eae))
+* **release:** Remove archs which probably won't build. ([0564262](https://github.com/shift/local_exporter/commit/05642621aace94ae03fe4860a8e37e0da1e51781))
+
 ## [0.0.8](https://github.com/shift/local_exporter/compare/v0.0.7...v0.0.8) (2022-11-27)
 
 
