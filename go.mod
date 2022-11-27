@@ -5,6 +5,7 @@ go 1.19
 require (
 	github.com/BurntSushi/toml v1.2.1
 	github.com/godbus/dbus v5.0.1+incompatible
+	github.com/lucab/local_exporter v0.0.0-20211130150300-988d24812c26
 	github.com/sirupsen/logrus v1.9.0
 	github.com/spf13/cobra v1.6.1
 )
