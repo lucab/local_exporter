@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.8](https://github.com/shift/local_exporter/compare/v0.0.7...v0.0.8) (2022-11-27)
+
+
+### Bug Fixes
+
+* **changelog:** The joys of autogeneration :D ([b16b590](https://github.com/shift/local_exporter/commit/b16b59047ad6a93e306973dd91dc4601dc842f9b))
+
 ## [0.0.7](https://github.com/shift/local_exporter/compare/v0.0.6...v0.0.7) (2022-11-27)
 
 
@@ -16,4 +23,3 @@
 * **release:** Fis Dockerfile path. ([e2fa370](https://github.com/shift/local_exporter/commit/e2fa37039c8ac3f1edefdca97e7b037bba4e670c))
 * **release:** Make path to dockerfile local. ([8cc6947](https://github.com/shift/local_exporter/commit/8cc694750f672ce24ab50df49280868f9faa209a))
 * **release:** Path context issue should be resolved. ([9c09929](https://github.com/shift/local_exporter/commit/9c09929ab0e234d1c31392f1ffab5770d283db27))
-
