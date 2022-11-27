@@ -1,5 +1,6 @@
-# github.com/BurntSushi/toml v0.3.1
+# github.com/BurntSushi/toml v1.2.1
 github.com/BurntSushi/toml
+github.com/BurntSushi/toml/internal
 # github.com/godbus/dbus v5.0.1+incompatible
 github.com/godbus/dbus
 # github.com/inconshreveable/mousetrap v1.0.0
